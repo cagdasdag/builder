@@ -42,10 +42,10 @@ describe('Editor Type Change', function () {
         .click()
 
       cy.get('@firstPageEdit').should((response) => {
-        cy.reload()
         cy.visit(response.response.body.postData.backendEditorUrl)
       })
 
+      cy.reload()
       cy.get('input[name="vcv-be-editor"]')
         .should('have.value', 'gutenberg')
 
@@ -57,7 +57,6 @@ describe('Editor Type Change', function () {
 
       // Check classic editor
       cy.get('@firstPageEdit').should((response) => {
-        cy.reload()
         cy.visit(response.response.body.postData.backendEditorUrl + '&classic-editor')
       })
 
@@ -68,7 +67,6 @@ describe('Editor Type Change', function () {
         .click()
 
       cy.get('@firstPageEdit').should((response) => {
-        cy.reload()
         cy.visit(response.response.body.postData.backendEditorUrl)
       })
 
