@@ -42,6 +42,7 @@ describe('Editor Type Change', function () {
         .click()
 
       cy.get('@firstPageEdit').should((response) => {
+        cy.reload()
         cy.visit(response.response.body.postData.backendEditorUrl)
       })
 
@@ -56,6 +57,7 @@ describe('Editor Type Change', function () {
 
       // Check classic editor
       cy.get('@firstPageEdit').should((response) => {
+        cy.reload()
         cy.visit(response.response.body.postData.backendEditorUrl + '&classic-editor')
       })
 
@@ -66,6 +68,7 @@ describe('Editor Type Change', function () {
         .click()
 
       cy.get('@firstPageEdit').should((response) => {
+        cy.reload()
         cy.visit(response.response.body.postData.backendEditorUrl)
       })
 
