@@ -25,7 +25,7 @@ export default class CustomStyles extends React.Component {
 
   constructor (props) {
     super(props)
-    if (window.VCV_MANAGE_OPTIONS()) {
+    if (window.vcvManageOptions) {
       CustomStyles.defaultProps.styleData.push(
         {
           buttonTitle: CustomStyles.localizations ? CustomStyles.localizations.globalCSS : 'Global CSS',
