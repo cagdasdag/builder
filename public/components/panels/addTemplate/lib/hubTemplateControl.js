@@ -5,6 +5,7 @@ import { getService, getStorage } from 'vc-cake'
 
 const settingsStorage = getStorage('settings')
 const dataManager = getService('dataManager')
+const roleManager = getService('roleManager')
 
 export default class HubTemplateControl extends React.Component {
   static propTypes = {
@@ -85,13 +86,13 @@ export default class HubTemplateControl extends React.Component {
         />
       )
     } else {
-      itemButton = (
+      itemButton = roleManager.can('editor_content_template_add', roleManager.defaultTrue()) ? (
         <span
           className={applyClasses}
           onClick={handleApplyTemplate}
           title={localizations.addPlaceholder.replace('%', name)}
         />
-      )
+      ) : null
     }
 
     return (

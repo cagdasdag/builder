@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { getService } from 'vc-cake'
 
 const dataManager = getService('dataManager')
+const roleManager = getService('roleManager')
 
 export default class CustomTemplateControl extends React.Component {
   static propTypes = {
@@ -61,13 +62,13 @@ export default class CustomTemplateControl extends React.Component {
         />
       )
     } else {
-      itemButton = (
+      itemButton = roleManager.can('editor_content_template_add', roleManager.defaultTrue()) ? (
         <span
           className={applyClasses}
           onClick={handleApplyTemplate}
           title={localizations.addPlaceholder.replace('%', name)}
         />
-      )
+      ) : null
     }
 
     return (
